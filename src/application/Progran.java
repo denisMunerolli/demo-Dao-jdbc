@@ -1,7 +1,10 @@
 package application;
 
+import java.util.List;
+
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
+import model_entities.Department;
 import model_entities.Seller; 
 
 public class Progran {
@@ -19,6 +22,16 @@ public class Progran {
 		Seller seller = sellerDao.findById(3);
 		
 		System.out.println(seller);
+		
+		
+		System.out.println("\n=== TEST 2: seller findByDepartment ====");
+	    Department department = new Department(2, null);
+	    List<Seller> list = sellerDao.findByDepartment(department);
+	    for (Seller obj : list) {
+	        System.out.println(obj);
+	    }
+		
+//		DB.closeConnection();
 
 	}
 
